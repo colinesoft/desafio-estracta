@@ -20,3 +20,20 @@ it('extrai os campos de um cadastro completo a partir do HTML', function () {
         'regimeApuracao' => 'NORMAL',
     ]);
 });
+
+it('representa campos ausentes como null, sem quebrar a extração dos demais', function () {
+    $html = file_get_contents(__DIR__ . '/../Fixtures/cadastro-campos-ausentes.html');
+
+    $campos = (new CadastroExtractor())->extrair($html);
+
+    expect($campos)->toBe([
+        'inscricaoEstadual' => '987654321',
+        'cnpj' => '98765432000111',
+        'razaoSocial' => 'OUTRA EMPRESA FICTÍCIA LTDA',
+        'nomeFantasia' => null,
+        'situacaoCadastral' => 'ATIVO',
+        'endereco' => 'RUA SEM NOME, S/N, ZONA RURAL, BARREIRAS - BA',
+        'atividadeEconomica' => null,
+        'regimeApuracao' => null,
+    ]);
+});
