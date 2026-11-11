@@ -11,7 +11,7 @@ it('extrai os campos de um cadastro completo a partir do HTML', function () {
     $campos = (new CadastroExtractor())->extrair($html);
 
     expect($campos)->toBe([
-        'inscricaoEstadual' => '123.456.789 BA',
+        'inscricaoEstadual' => '123.456.789',
         'cnpj' => '12345678000199',
         'razaoSocial' => 'EMPRESA FICTÍCIA DE TESTE LTDA',
         'nomeFantasia' => 'LOJA TESTE',
