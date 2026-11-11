@@ -96,6 +96,14 @@ final class CadastroExtractor
             $campos['cnpj'] = preg_replace('/\D/', '', $campos['cnpj']);
         }
 
+        if ($campos['inscricaoEstadual'] !== null) {
+            // A página às vezes publica sufixos/notas junto do número (ex.:
+            // "000.478.696 NO (Inscrição Única)") — mantemos só dígitos,
+            // pontos e traços.
+            $ie = trim(preg_replace('/[^\d.\-]/u', '', $campos['inscricaoEstadual']), " .-\t\n\r\0\x0B");
+            $campos['inscricaoEstadual'] = $ie !== '' ? $ie : null;
+        }
+
         $campos['endereco'] = $this->extrairEndereco($documento);
 
         return $campos;
