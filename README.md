@@ -81,6 +81,12 @@ Os testes devem cobrir:
 
 As respostas HTML utilizadas nos testes (fixtures) devem ser sintéticas ou anonimizadas e identificadas como tal. A suíte padrão deve funcionar sem acesso à internet. Testes de integração com o portal, se incluídos, devem ter execução opcional e separada. As fixtures servem para testar a extração; o spider deve realizar a consulta real quando executado pelo comando.
 
+Este projeto inclui testes de integração reais contra o portal (`tests/Integration/`), fora da suíte padrão. Para rodá-los (exige acesso à internet):
+
+```bash
+composer test:integration
+```
+
 ## Entrega
 
 O projeto deve se chamar **Desafio estracta** e ser salvo em um **repositório Git público do próprio candidato**, contendo o código, o arquivo `composer.lock` atualizado, os testes em Pest e as fixtures. O link do repositório do projeto deve ser enviado por e-mail para **[mario.aquino@e-stracta.com](mailto:mario.aquino@e-stracta.com)** para avaliação. Deve ser possível clonar o repositório, instalar as dependências com `composer install`, executar os testes com `composer test` e consultar por CNPJ com o comando indicado neste documento.
