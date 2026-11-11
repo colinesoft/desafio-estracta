@@ -11,6 +11,10 @@ use ProvaSpider\Exception\FalhaTransporteException;
 
 final class HttpTransport implements Transport
 {
+    private const TIMEOUT_CONEXAO_SEGUNDOS = 5;
+    private const TIMEOUT_REQUISICAO_SEGUNDOS = 15;
+    private const MAXIMO_REDIRECIONAMENTOS = 3;
+
     private Client $cliente;
 
     public function __construct(?Client $cliente = null)
@@ -21,10 +25,10 @@ final class HttpTransport implements Transport
     public function enviarFormulario(string $url, array $campos, ?string $urlOrigem = null): RespostaHttp
     {
         $opcoes = [
-            'connect_timeout' => 5,
-            'timeout' => 15,
+            'connect_timeout' => self::TIMEOUT_CONEXAO_SEGUNDOS,
+            'timeout' => self::TIMEOUT_REQUISICAO_SEGUNDOS,
             'http_errors' => false,
-            'allow_redirects' => ['max' => 3],
+            'allow_redirects' => ['max' => self::MAXIMO_REDIRECIONAMENTOS],
         ];
 
         try {
