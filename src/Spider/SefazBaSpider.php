@@ -12,6 +12,7 @@ use ProvaSpider\Exception\RespostaInesperadaException;
 use ProvaSpider\Exception\ServicoIndisponivelException;
 use ProvaSpider\Extraction\CadastroExtractor;
 use ProvaSpider\Http\HttpTransport;
+use ProvaSpider\Http\RetryingTransport;
 use ProvaSpider\Http\Transport;
 use ProvaSpider\ValueObject\CadastroContribuinte;
 use ProvaSpider\ValueObject\Consulta;
@@ -23,7 +24,7 @@ final class SefazBaSpider implements Spider
     private const URL_RESULTADO = 'https://portal.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/result.asp';
 
     public function __construct(
-        private readonly Transport $transport = new HttpTransport(),
+        private readonly Transport $transport = new RetryingTransport(new HttpTransport()),
         private readonly CadastroExtractor $extractor = new CadastroExtractor(),
     ) {
     }
