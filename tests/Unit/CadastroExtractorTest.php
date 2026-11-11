@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ProvaSpider\Exception\RespostaInesperadaException;
 use ProvaSpider\Extraction\CadastroExtractor;
 
 it('extrai os campos de um cadastro completo a partir do HTML', function () {
@@ -36,4 +37,11 @@ it('representa campos ausentes como null, sem quebrar a extração dos demais', 
         'atividadeEconomica' => null,
         'regimeApuracao' => null,
     ]);
+});
+
+it('lança RespostaInesperadaException quando o HTML não tem tabela reconhecível', function () {
+    $html = file_get_contents(__DIR__ . '/../Fixtures/html-inesperado.html');
+
+    expect(fn () => (new CadastroExtractor())->extrair($html))
+        ->toThrow(RespostaInesperadaException::class);
 });
