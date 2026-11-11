@@ -11,12 +11,12 @@ it('extrai os campos de um cadastro completo a partir do HTML', function () {
     $campos = (new CadastroExtractor())->extrair($html);
 
     expect($campos)->toBe([
-        'inscricaoEstadual' => '123456789',
+        'inscricaoEstadual' => '123.456.789 BA',
         'cnpj' => '12345678000199',
         'razaoSocial' => 'EMPRESA FICTÍCIA DE TESTE LTDA',
         'nomeFantasia' => 'LOJA TESTE',
         'situacaoCadastral' => 'ATIVO',
-        'endereco' => 'RUA DAS FLORES, 123, CENTRO, SALVADOR - BA, CEP 40000-000',
+        'endereco' => 'RUA DAS FLORES, 123, CENTRO, SALVADOR/BA, CEP 40000-000',
         'atividadeEconomica' => '4711301 - Comércio varejista de mercadorias em geral',
         'regimeApuracao' => 'NORMAL',
     ]);
@@ -33,7 +33,7 @@ it('representa campos ausentes como null, sem quebrar a extração dos demais', 
         'razaoSocial' => 'OUTRA EMPRESA FICTÍCIA LTDA',
         'nomeFantasia' => null,
         'situacaoCadastral' => 'ATIVO',
-        'endereco' => 'RUA SEM NOME, S/N, ZONA RURAL, BARREIRAS - BA',
+        'endereco' => 'RUA SEM NOME, S/N, ZONA RURAL, BARREIRAS/BA',
         'atividadeEconomica' => null,
         'regimeApuracao' => null,
     ]);

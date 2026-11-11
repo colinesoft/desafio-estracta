@@ -1,20 +1,63 @@
 <!--
     Fixture SINTÉTICA para teste automatizado — não é um dado real extraído
-    da SEFAZ-BA. Estrutura de tabela (rótulo/valor por linha) inspirada no
-    layout observado na página pública, com conteúdo totalmente inventado.
+    da SEFAZ-BA. Estrutura de tabela (rótulo e valor no mesmo <td>, como
+    "<b>Rótulo:</b>&nbsp;Valor") inspirada no layout observado na página
+    pública, com conteúdo totalmente inventado. Inclui uma segunda tabela de
+    "Endereço de Correspondência" com dados DIFERENTES de propósito, para
+    comprovar que o extrator usa o endereço do próprio contribuinte.
 -->
 <html>
 <head><meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" /></head>
 <body>
 <table>
-<tr><td>Inscri&ccedil;&atilde;o Estadual:</td><td>&nbsp;123456789</td></tr>
-<tr><td>CGC/CNPJ:</td><td>&nbsp;12345678000199</td></tr>
-<tr><td>Nome/Raz&atilde;o Social:</td><td>&nbsp;EMPRESA FICTÍCIA DE TESTE LTDA</td></tr>
-<tr><td>Nome Fantasia:</td><td>&nbsp;LOJA TESTE</td></tr>
-<tr><td>Situação Cadastral Vigente:</td><td>&nbsp;ATIVO</td></tr>
-<tr><td>Endere&ccedil;o:</td><td>&nbsp;RUA DAS FLORES, 123, CENTRO, SALVADOR - BA, CEP 40000-000</td></tr>
-<tr><td>Atividades Econ&ocirc;micas</td><td>&nbsp;4711301 - Comércio varejista de mercadorias em geral</td></tr>
-<tr><td>Forma de pagamento:</td><td>&nbsp;NORMAL</td></tr>
+<tr>
+  <td colspan="4"><b>CPF:</b>&nbsp;000.000.000-00</td>
+  <td colspan="1"><b>Inscrição Estadual:</b>&nbsp;123.456.789 BA</td>
+</tr>
+<tr><td colspan="4"><b>CNPJ:</b>&nbsp;12.345.678/0001-99</td></tr>
+<tr><td colspan="5"><b>Razão Social:</b>&nbsp;EMPRESA FICTÍCIA DE TESTE LTDA</td></tr>
+<tr><td colspan="5"><b>Nome Fantasia:</b>&nbsp;LOJA TESTE</td></tr>
+<tr><td colspan="5"><b>Logradouro:</b>&nbsp;RUA DAS FLORES</td></tr>
+<tr>
+  <td colspan="4"><b>Número:</b>&nbsp;123</td>
+  <td colspan="1"><b>Complemento:</b>&nbsp;</td>
+</tr>
+<tr>
+  <td colspan="4"><b>Bairro/Distrito:</b>&nbsp;CENTRO</td>
+  <td colspan="1"><b>CEP:</b>&nbsp;40000-000</td>
+</tr>
+<tr>
+  <td colspan="4"><b>Município:</b>&nbsp;SALVADOR</td>
+  <td colspan="1"><b>UF:</b>&nbsp;BA</td>
+</tr>
+<tr><td colspan="5"><b>Atividade Econômica Principal:</b></td></tr>
+<tr><td colspan="5">4711301 - Comércio varejista de mercadorias em geral</td></tr>
+<tr><td colspan="5"><b>Condição:</b>&nbsp;NORMAL</td></tr>
+<tr><td colspan="5"><b>Forma de pagamento:</b>&nbsp;NORMAL</td></tr>
+<tr>
+  <td colspan="3"><b>Situação Cadastral Vigente:</b>&nbsp;ATIVO</td>
+  <td colspan="1"><b>Data desta Situação Cadastral:</b>&nbsp;01/01/2020</td>
+</tr>
+</table>
+
+<table>
+<tr><th colspan="3">Endereço de Correspondência</th></tr>
+<tr>
+  <td><b>Endereço:</b>&nbsp;OUTRO ENDERECO (NAO DEVE SER USADO)</td>
+  <td><b>Complemento:</b>&nbsp;SALA 2</td>
+</tr>
+<tr>
+  <td><b>Referência:</b>&nbsp;</td>
+  <td><b>Número:</b>&nbsp;999</td>
+</tr>
+<tr>
+  <td><b>Bairro:</b>&nbsp;OUTRO BAIRRO</td>
+  <td><b>CEP:</b>&nbsp;99999999</td>
+</tr>
+<tr>
+  <td><b>Município:</b>&nbsp;FEIRA DE SANTANA</td>
+  <td><b>UF:</b>&nbsp;BA</td>
+</tr>
 </table>
 </body>
 </html>
