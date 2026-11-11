@@ -39,7 +39,7 @@ final class SefazBaSpider implements Spider
             // não sabe qual tipo de consulta foi solicitado e redireciona
             // para uma página de parâmetro inválido.
             'B1' => 'CNPJ  ->',
-        ]);
+        ], urlOrigem: self::URL);
 
         if ($resposta->statusCode >= 500) {
             throw new ServicoIndisponivelException(

@@ -16,7 +16,7 @@ function transportContador(int $falhasAntesDeSuceder): Transport
         {
         }
 
-        public function enviarFormulario(string $url, array $campos): RespostaHttp
+        public function enviarFormulario(string $url, array $campos, ?string $urlOrigem = null): RespostaHttp
         {
             $this->chamadas++;
 
