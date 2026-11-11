@@ -25,7 +25,7 @@ function transportFixo(int $statusCode, string $corpo): Transport
         {
         }
 
-        public function enviarFormulario(string $url, array $campos): RespostaHttp
+        public function enviarFormulario(string $url, array $campos, ?string $urlOrigem = null): RespostaHttp
         {
             $this->urlRecebida = $url;
             $this->camposRecebidos = $campos;
@@ -90,7 +90,7 @@ it('lança RespostaInesperadaException quando o status HTTP não é 2xx nem 5xx'
 
 it('propaga FalhaTransporteException sem tentar interpretar nada', function () {
     $transport = new class () implements Transport {
-        public function enviarFormulario(string $url, array $campos): RespostaHttp
+        public function enviarFormulario(string $url, array $campos, ?string $urlOrigem = null): RespostaHttp
         {
             throw new FalhaTransporteException('timeout de conexão');
         }

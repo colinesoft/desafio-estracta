@@ -21,7 +21,7 @@ final class RetryingTransport implements Transport
     ) {
     }
 
-    public function enviarFormulario(string $url, array $campos): RespostaHttp
+    public function enviarFormulario(string $url, array $campos, ?string $urlOrigem = null): RespostaHttp
     {
         $tentativa = 0;
 
@@ -29,7 +29,7 @@ final class RetryingTransport implements Transport
             $tentativa++;
 
             try {
-                return $this->transport->enviarFormulario($url, $campos);
+                return $this->transport->enviarFormulario($url, $campos, $urlOrigem);
             } catch (FalhaTransporteException $exception) {
                 if ($tentativa >= $this->maximoTentativas) {
                     throw $exception;
